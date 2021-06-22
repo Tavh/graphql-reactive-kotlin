@@ -1,7 +1,7 @@
 package com.tav.reactive.query
 
 import com.expediagroup.graphql.server.operations.Query
-import com.tav.reactive.dto.Conference
+import com.tav.reactive.dto.UserDetails
 import org.springframework.stereotype.Component
 
 @Component
