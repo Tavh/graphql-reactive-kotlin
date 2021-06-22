@@ -1,2 +1,12 @@
 graphql:
   packages: com.tav.reactive
+
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://postgres@localhost:5432/reactive
+
+logging:
+  level:
+    org:
+      springframework:
+        r2dbc: DEBUG
