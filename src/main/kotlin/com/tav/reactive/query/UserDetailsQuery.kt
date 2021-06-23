@@ -1,10 +1,16 @@
 package com.tav.reactive.query
 
 import com.expediagroup.graphql.server.operations.Query
-import com.tav.reactive.dto.UserDetails
+import com.tav.reactive.model.UserDetails
+import com.tav.reactive.repository.UserDetailsRepository
 import org.springframework.stereotype.Component
+import reactor.core.publisher.Mono
 
 @Component
-class UserDetailsQuery : Query {
-    fun userDetails(): UserDetails = UserDetails(name = "Tav", age = 25)
+class UserDetailsQuery(private val userDetailsRepository: UserDetailsRepository) : Query {
+    fun fetchUserDetails(id: Int): Mono<UserDetails> {
+        val userDetails = userDetailsRepository.findById(id)
+        println(userDetails)
+        return userDetails
+    }
 }
