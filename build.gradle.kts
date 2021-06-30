@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-	implementation("com.expediagroup:graphql-kotlin-spring-server:5.0.0-alpha.0")
+	implementation("com.expediagroup:graphql-kotlin-spring-server:4.1.1")
 	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
