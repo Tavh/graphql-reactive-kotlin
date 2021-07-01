@@ -13,7 +13,7 @@ import reactor.kotlin.core.publisher.toFlux
 
 @Component
 class UserDetailsSubscription(val userDetailsRepository: UserDetailsRepository) : Subscription {
-    suspend fun getAllUserDetails(): Flux<UserDetails?> {
+    suspend fun streamAllUserDetails(): Flux<UserDetails> {
         return userDetailsRepository.findAll()
     }
 }

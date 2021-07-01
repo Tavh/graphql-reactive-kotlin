@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
-val configWithReactorMonoMonad = SchemaGeneratorConfig(
+val configWithReactorMonad = SchemaGeneratorConfig(
     supportedPackages = listOf("com.tav.reactive"),
     hooks = MonadHooks(),
     dataFetcherFactoryProvider = CustomDataFetcherFactoryProvider(ObjectMapper())
@@ -24,8 +24,8 @@ val configWithReactorMonoMonad = SchemaGeneratorConfig(
 class GraphQLConfig {
     @Bean
     fun schema(@Autowired userDetailsRepository: UserDetailsRepository) = toSchema(
-        config = configWithReactorMonoMonad,
-        queries = listOf(TopLevelObject(UserDetailsQuery())),
+        config = configWithReactorMonad,
+        queries = listOf(TopLevelObject(UserDetailsQuery(userDetailsRepository))),
         subscriptions = listOf(TopLevelObject(UserDetailsSubscription(userDetailsRepository))),
         mutations = listOf(TopLevelObject(UserDetailsMutation(userDetailsRepository)))
     )
