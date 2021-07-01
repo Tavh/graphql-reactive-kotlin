@@ -11,33 +11,30 @@ The stack used in this project is:
   
 Here are some graphQL queries, mutations and subscriptions to test the project:
 
-mutation {
-  saveUserDetails(userDetails: { name: $name }) {
-    id
-    name
-  }
-}
-
-
-query GetUserDetails {
-  getUserDetails(id: $id) {
-    id
-    name
-  }
-}
-
-
-query GetAllUserDetails {
-  getAllUserDetails {
-    id
-    name
-  }
-}
-
-
-subscription StreamAllUserDetails {
-  streamAllUserDetails {
-    id
-    name
-  }
-}
+    mutation {
+      saveUserDetails(userDetails: { name: $name }) {
+        id
+        name
+      }
+    }
+    
+    query GetUserDetails {
+      getUserDetails(id: $id) {
+        id
+        name
+      }
+    }
+    
+    query GetAllUserDetails {
+      getAllUserDetails {
+        id
+        name
+      }
+    }
+    
+    subscription StreamAllUserDetails {
+      streamAllUserDetails {
+        id
+        name
+      }
+    }
