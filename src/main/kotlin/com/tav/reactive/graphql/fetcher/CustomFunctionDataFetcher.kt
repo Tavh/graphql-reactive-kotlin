@@ -20,5 +20,4 @@ class CustomDataFetcherFactoryProvider(private val objectMapper: ObjectMapper) :
   override fun functionDataFetcherFactory(target: Any?, kFunction: KFunction<*>): DataFetcherFactory<Any?> {
     return DataFetcherFactory<Any?> { CustomFunctionDataFetcher(target = target, fn = kFunction, objectMapper = objectMapper) }
   }
-
 }
