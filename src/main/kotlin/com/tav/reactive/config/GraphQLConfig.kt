@@ -6,7 +6,11 @@ import com.expediagroup.graphql.generator.toSchema
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tav.reactive.fetcher.CustomDataFetcherFactoryProvider
 import com.tav.reactive.hook.MonadHooks
+import com.tav.reactive.mutation.UserDetailsMutation
 import com.tav.reactive.query.UserDetailsQuery
+import com.tav.reactive.repository.UserDetailsRepository
+import com.tav.reactive.subscription.UserDetailsSubscription
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -19,5 +23,10 @@ val configWithReactorMonoMonad = SchemaGeneratorConfig(
 @Configuration
 class GraphQLConfig {
     @Bean
-    fun schema() = toSchema(config = configWithReactorMonoMonad, queries = listOf(TopLevelObject(UserDetailsQuery())))
+    fun schema(@Autowired userDetailsRepository: UserDetailsRepository) = toSchema(
+        config = configWithReactorMonoMonad,
+        queries = listOf(TopLevelObject(UserDetailsQuery())),
+        subscriptions = listOf(TopLevelObject(UserDetailsSubscription(userDetailsRepository))),
+        mutations = listOf(TopLevelObject(UserDetailsMutation(userDetailsRepository)))
+    )
 }

@@ -9,4 +9,6 @@ data class UserDetails(
     val id: Int?,
 
     val name: String
-    )
+    ) {
+    constructor() : this(null, "")
+}
