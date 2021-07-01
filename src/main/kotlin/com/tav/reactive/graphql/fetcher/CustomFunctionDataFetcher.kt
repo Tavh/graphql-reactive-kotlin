@@ -1,4 +1,4 @@
-package com.tav.reactive.fetcher
+package com.tav.reactive.graphql.fetcher
 
 import com.expediagroup.graphql.generator.execution.FunctionDataFetcher
 import com.expediagroup.graphql.generator.execution.SimpleKotlinDataFetcherFactoryProvider

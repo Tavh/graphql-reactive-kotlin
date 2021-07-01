@@ -4,12 +4,12 @@ import com.expediagroup.graphql.generator.SchemaGeneratorConfig
 import com.expediagroup.graphql.generator.TopLevelObject
 import com.expediagroup.graphql.generator.toSchema
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.tav.reactive.fetcher.CustomDataFetcherFactoryProvider
-import com.tav.reactive.hook.MonadHooks
-import com.tav.reactive.mutation.UserDetailsMutation
-import com.tav.reactive.query.UserDetailsQuery
+import com.tav.reactive.graphql.fetcher.CustomDataFetcherFactoryProvider
+import com.tav.reactive.graphql.hook.MonadHooks
+import com.tav.reactive.graphql.mutation.UserDetailsMutation
+import com.tav.reactive.graphql.query.UserDetailsQuery
 import com.tav.reactive.repository.UserDetailsRepository
-import com.tav.reactive.subscription.UserDetailsSubscription
+import com.tav.reactive.graphql.subscription.UserDetailsSubscription
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
