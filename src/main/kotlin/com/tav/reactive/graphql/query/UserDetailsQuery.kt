@@ -6,6 +6,8 @@ import com.tav.reactive.model.UserDetails
 import com.tav.reactive.repository.UserDetailsRepository
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
+import reactor.core.scheduler.Scheduler
+import reactor.core.scheduler.Schedulers
 import java.util.stream.Collectors
 
 @Component
@@ -13,7 +15,10 @@ class UserDetailsQuery(val userDetailsRepository: UserDetailsRepository) : Query
     @GraphQLDescription("Retrieves a single user by it's id")
     fun getUserDetails(id: Int): Mono<UserDetails> = userDetailsRepository.findById(id)
     @GraphQLDescription("Streams all the users from the db into a list, then returns the list")
-    fun getAllUserDetails(): Mono<MutableList<UserDetails>> = userDetailsRepository.findAll().collect(Collectors.toList())
+    fun getAllUserDetails(): Mono<MutableList<UserDetails>> {
+        println("Running getAllUserDetails on thread: ${Thread.currentThread()}")
+        return userDetailsRepository.findAll().collect(Collectors.toList())
+    }
 }
 
 

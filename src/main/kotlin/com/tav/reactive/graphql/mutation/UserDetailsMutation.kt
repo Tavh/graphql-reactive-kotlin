@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component
 class UserDetailsMutation(val userDetailsRepository: UserDetailsRepository) : Mutation {
     @GraphQLDescription("Inserts or updates a user, then returns it")
     suspend fun saveUserDetails(userDetails: UserDetails): UserDetails? {
+        repeat(1000000) {
+            userDetailsRepository.save(userDetails).awaitSingleOrNull()
+        }
         return userDetailsRepository.save(userDetails).awaitSingleOrNull()
     }
 }

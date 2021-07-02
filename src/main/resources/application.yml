@@ -3,7 +3,7 @@ graphql:
 
 spring:
   r2dbc:
-    url: r2dbc:postgresql://postgres@localhost:5432/reactive
+    url: r2dbc:postgresql://postgres@localhost:5432/kotlin_graphql
     password: postgres
 
 logging:
